@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Todo } from '../../models/todo.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,25 +13,25 @@ export class TodoService {
 
   private apiUrl = 'https://jsonplaceholder.typicode.com/todos'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
-  loadTodos() {
-    this.http.get<Todo[]>(this.apiUrl).subscribe((todos: Todo[]) => {
-      console.log(todos);
+  loadTodos(userId: number) {
+    const params = new HttpParams().set('userId', userId);
+    this.http.get<Todo[]>(this.apiUrl,  { params }).subscribe((todos: Todo[]) => {
       this.todosSubject.next(todos);
     });
   }
 
   addTodo(title: string) {
+    const currentUser = this.userService.getCurrentUser();
     const newTodo: Todo = {
-      id: "1",
+      id: Math.random() * 100,
       title,
       completed: false,
-      userId: 'tecAllianceUserId'
+      userId: currentUser ? currentUser.id : 0
     };
 
     this.http.post<Todo>(this.apiUrl, newTodo).subscribe(response => {
-      console.log(response);
       const current = this.todosSubject.value;
       this.todosSubject.next([newTodo, ...current]);
     });
@@ -47,11 +48,10 @@ export class TodoService {
 
   toggleTodo(todo: Todo) {
     const updatedTodo = { ...todo, completed: !todo.completed };
-    console.log(updatedTodo);
     this.updateTodo(updatedTodo);
   }
 
-  deleteTodo(id: string) {
+  deleteTodo(id: number) {
     this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
       const current = this.todosSubject.value.filter(t => t.id !== id);
       this.todosSubject.next(current);

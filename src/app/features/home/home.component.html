@@ -1,20 +1,40 @@
 <app-header></app-header>
-<section>
-    <h2>Lista de ToDos</h2>
+<section class="todo-container">
+    <mat-card class="todo-card">
+      <mat-card-title class="title">Lista de ToDos</mat-card-title>
   
-    <form [formGroup]="newTodoForm" (ngSubmit)="addTodo()">
-        <input formControlName="title" placeholder="Nuevo ToDo (máx 250)" />
-        <button type="submit" [disabled]="newTodoForm.invalid">Agregar</button>
-    </form>
+      <form [formGroup]="newTodoForm" (ngSubmit)="addTodo()" class="todo-form">
+        <mat-form-field appearance="outline" class="todo-input">
+            <mat-label>Add Todo...</mat-label>
+            <input matInput formControlName="title" maxlength="250" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="newTodoForm.invalid">
+            Agregar
+        </button>
+      </form>
+    </mat-card>
   
-    <ul>
-        <li *ngFor="let todo of (todoList$ | async)">
-            <input type="checkbox" [checked]="todo.completed" (change)="toggle(todo)" />
-            <span [style.text-decoration]="todo.completed ? 'line-through' : 'none'">
-                {{ todo.title }}
-            </span>
-            <button (click)="edit(todo)">Modificar</button>
-            <button (click)="confirmDelete(todo)">Eliminar</button>
-        </li>
-    </ul>
+    <mat-card class="todo-list-card">
+      <mat-list class="todo-list">
+        <mat-list-item *ngFor="let todo of (todoList$ | async)" class="todo-item">
+          <div class="todo-content">
+            <div class="todo-left">
+                <mat-checkbox [checked]="todo.completed" (change)="toggle(todo)"/>
+                <span class="todo-title" [class.completed]="todo.completed">
+                    {{ todo.title }}
+                </span>
+            </div>
+  
+            <div class="todo-actions">
+                <button mat-icon-button color="accent" (click)="edit(todo)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="confirmDelete(todo)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
 </section>

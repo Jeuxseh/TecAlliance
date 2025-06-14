@@ -8,6 +8,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { UserService } from '../../core/services/user/user.service';
+import { User } from '../../core/models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +25,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatIconModule,
     ReactiveFormsModule
   ],
   templateUrl: './home.component.html',
@@ -28,7 +38,8 @@ export class HomeComponent {
   newTodoForm: FormGroup;
 
   constructor(
-    private todoService: TodoService, 
+    private todoService: TodoService,
+    private userService: UserService,
     private fb: FormBuilder
   ) {
     this.newTodoForm = fb.group({
@@ -40,7 +51,9 @@ export class HomeComponent {
 
   ngOnInit() {
     this.todoList$ = this.todoService.todos$;
-    this.todoService.loadTodos();
+    this.userService.user$.subscribe((user: User | null) => {
+      if(user) this.todoService.loadTodos(user.id);
+    })
   }
 
   addTodo() {

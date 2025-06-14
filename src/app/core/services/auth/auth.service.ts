@@ -14,18 +14,15 @@ export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  login(email: string): boolean {
-    const isValid = this.validateEmail(email);
-    if (isValid) {
-      this.loggedIn.next(true);
-      localStorage.setItem('isAuthenticated', 'true');
-    }
-    return isValid;
+  login() {
+    this.loggedIn.next(true);
+    localStorage.setItem('isAuthenticated', 'true');
   }
 
   logout() {
     this.loggedIn.next(false);
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userEmail');
     this.router.navigateByUrl('/login')
   }
 
@@ -33,8 +30,4 @@ export class AuthService {
     return this.loggedIn.value;
   }
 
-  private validateEmail(email: string): boolean {
-    const regex = /^[^@]+@tecalliance\.com$/;
-    return regex.test(email);
-  }
 }

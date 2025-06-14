@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../core/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent {
 
   constructor(
     private auth: AuthService, 
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   public login() {
@@ -30,11 +32,13 @@ export class LoginComponent {
       this.error = "Correo inválido. Por favor, introduzca un correo."
       return;
     }
-    const success = this.auth.login(this.email);
-    if (!success) {
-      this.error = 'Correo inválido. Usa un correo @tecalliance.com.';
-      return;
-    } 
-    this.router.navigateByUrl('/home');
+    this.userService.validateEmail(this.email).subscribe(resp =>{
+      if(!resp) {
+        this.error = "Correo inválido. Introduzca un correo válido."
+        return;
+      }
+      this.auth.login();
+      this.router.navigateByUrl('/home');
+    });
   }
 }
