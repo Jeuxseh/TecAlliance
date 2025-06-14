@@ -1,13 +1,10 @@
 .nav-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-    
+
     .title {
-      position: absolute;
-      left: 0;
-      margin-left: 16px;
     }
     
     .buttons-container {
