@@ -52,7 +52,7 @@ export class HeaderComponent {
     this.translate.use(this.selectedLang.code.toLowerCase());
   }
 
-  changeLanguage(langCode: string) {
+  public changeLanguage(langCode: string) {
     const selected = this.languages.find(l => l.code.toLowerCase() === langCode.toLowerCase());
     if (selected) {
       this.selectedLang = selected;
@@ -64,7 +64,7 @@ export class HeaderComponent {
     }
   }
 
-  toggleDropdown() {
+  public toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
 

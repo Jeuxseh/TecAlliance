@@ -1,9 +1,10 @@
 import { TodoService } from './todo.service';
 import { HttpClient } from '@angular/common/http';
-import { mock, instance, anything, capture, verify, when } from 'ts-mockito';
+import { mock, instance, anything, capture, verify, when, anyString, reset } from 'ts-mockito';
 import { UserService } from '../user/user.service';
 import { of } from 'rxjs';
 import { Todo } from '../../models/todo.model';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 describe('TodoService', () => {
   let service: TodoService;
@@ -14,8 +15,14 @@ describe('TodoService', () => {
   let userService = instance(mockUserService);
 
   beforeEach(() => {
+    when(mockHttpClient.put(anyString(), anything())).thenReturn(of());
     service = new TodoService(httpClient, userService);
   });
+
+  afterEach(()=> {
+    reset(mockHttpClient);
+    reset(mockUserService);
+  })
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -57,6 +64,25 @@ describe('TodoService', () => {
     verify(mockHttpClient.post(service['apiUrl'], anything())).once();
   });
 
+  it('addTodo should set userId to 0 if getCurrentUser returns null', done => {
+    when(mockUserService.getCurrentUser()).thenReturn(null);
+    when(mockHttpClient.post<Todo>(anything(), anything())).thenReturn(of({} as any));
+  
+    service["todosSubject"].next([]);
+  
+    service.addTodo('Test Todo');
+  
+    service.todos$.subscribe(todos => {
+      expect(todos.length).toBe(1);
+      expect(todos[0].userId).toBe(0);
+      expect(todos[0].title).toBe('Test Todo');
+      expect(todos[0].completed).toBe(false);
+      done();
+    });
+  
+    verify(mockHttpClient.post(service['apiUrl'], anything())).once();
+  });
+
   it('updateTodo should call http.put and update todosSubject', done => {
     const existingTodo: Todo = { id: 1, title: 'Old', completed: false, userId: 1 };
     service["todosSubject"].next([existingTodo]);
@@ -73,6 +99,30 @@ describe('TodoService', () => {
       done();
     });
 
+    verify(mockHttpClient.put(`${service['apiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
+  });
+
+  it('updateTodo should leave other todos untouched if ids do not match', done => {
+    const originalTodo: Todo = { id: 1, title: 'Todo1', completed: false, userId: 1 };
+    const unrelatedTodo: Todo = { id: 2, title: 'Todo2', completed: true, userId: 1 };
+  
+    service['todosSubject'].next([originalTodo, unrelatedTodo]);
+  
+    const updatedTodo: Todo = { ...originalTodo, id: 3, title: 'Updated', loading: true };
+  
+    when(mockHttpClient.put(anything(), anything())).thenReturn(of({}));
+  
+    service.updateTodo(updatedTodo);
+  
+    service.todos$.subscribe(todos => {
+      expect(todos.length).toBe(2);
+  
+      const updated = todos.find(t => t.id === 3);
+      expect(updated).toBeUndefined();
+  
+      done();
+    });
+  
     verify(mockHttpClient.put(`${service['apiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
   });
 
@@ -93,4 +143,20 @@ describe('TodoService', () => {
 
     verify(mockHttpClient.delete(`${service['apiUrl']}/1`)).once();
   });
+
+  it('toggleTodo should call http.put with toggled completed', fakeAsync(() => {
+    const todo: Todo = { id: 1, title: 'Test', completed: false, userId: 1 };
+  
+    when(mockHttpClient.put(anyString(), anything())).thenReturn(of(todo));
+  
+    service.toggleTodo(todo);
+  
+    tick();
+  
+    const [url] = capture(mockHttpClient.put).last();
+  
+    expect(url).toBe(`https://jsonplaceholder.typicode.com/todos/${todo.id}`);
+    
+    verify(mockHttpClient.put(anyString(), anything())).once();
+  }));
 });
