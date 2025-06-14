@@ -12,7 +12,8 @@
   "LOGIN": {
     "LOGIN": "Login",
     "EMAIL": "Email",
-    "INIT_SESION": "Init sesion"
+    "NO_EMAIL_ERROR": "Invalid email. Please enter an email.",
+    "INVALID_EMAIL": "Invalid email. Please enter a valid email."
   },
   "HOME": {
     "MY_TODO_LIST":"My Todo list",
@@ -24,7 +25,8 @@
       "TITLE": "Edit Todo"
     },
     "CONFIRM_MODAL": {
-      "TITLE": "Confirm delete"
+      "TITLE": "Confirm delete",
+      "CONFIRM_MESSAGE": "Are you sure you want to delete this todo?"
     }
   }
 }

@@ -8,7 +8,7 @@ import { AuthService } from '../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../core/services/user/user.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -33,17 +33,18 @@ export class LoginComponent {
   constructor(
     private auth: AuthService, 
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private translate: TranslateService
   ) {}
 
   public login() {
     if(!this.email){
-      this.error = "Correo inválido. Por favor, introduzca un correo."
+      this.error = this.translate.instant('LOGIN.NO_EMAIL_ERROR');
       return;
     }
     this.userService.validateEmail(this.email).subscribe(resp =>{
       if(!resp) {
-        this.error = "Correo inválido. Introduzca un correo válido."
+        this.error = this.translate.instant('LOGIN.INVALID_EMAIL');
         return;
       }
       this.auth.login();

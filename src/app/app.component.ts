@@ -10,6 +10,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
+  constructor(private translate: TranslateService){
+    const defaultLanguage = this.translate.getBrowserLang() || 'en';
+    this.translate.use(defaultLanguage);
+    localStorage.setItem('lang', defaultLanguage);
+  }
   title = 'TecAllianceFrontend';
 }

@@ -17,7 +17,7 @@ import { User } from '../../core/models/user.model';
 import { EditTodoModalComponent } from '../../shared/components/edit-todo-modal/edit-todo-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmModalComponent } from '../../shared/components/confirm-delete-modal/confirm-delete-modal.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -48,10 +48,11 @@ export class HomeComponent {
     private userService: UserService,
     private fb: FormBuilder,
     private editDialog: MatDialog,
-    private confirmDeleteDialog: MatDialog
+    private confirmDeleteDialog: MatDialog,
+    private translate: TranslateService
   ) {
     this.newTodoForm = fb.group({
-      title: ["", [Validators.required, Validators.maxLength(250)]]
+      title: ["", Validators.maxLength(250)]
     });
   }
 
@@ -92,8 +93,9 @@ export class HomeComponent {
   }
 
   confirmDelete(todo: Todo) {
+    const message = this.translate.instant('MODALS.CONFIRM_MODAL.CONFIRM_MESSAGE');
     this.confirmDeleteDialog.open(ConfirmModalComponent, {
-      data: { message: '¿Estás seguro de eliminar esta tarea?' },
+      data: { message: message },
       width: '500px',
     }).afterClosed().subscribe(result => {
       if (result) {

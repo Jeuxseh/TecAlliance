@@ -12,7 +12,8 @@
     "LOGIN": {
       "LOGIN": "Connexion",
       "EMAIL": "Email",
-      "INIT_SESION": "Démarrer la session"
+      "NO_EMAIL_ERROR": "E-mail invalide. Veuillez saisir un e-mail.",
+      "INVALID_EMAIL": "E-mail invalide. Veuillez saisir un e-mail valide."
     },
     "HOME": {
       "MY_TODO_LIST": "Ma liste de tâches",
@@ -24,7 +25,8 @@
         "TITLE": "Modifier la tâche"
       },
       "CONFIRM_MODAL": {
-        "TITLE": "Confirmer la suppression"
+        "TITLE": "Confirmer la suppression",
+        "CONFIRM_MESSAGE": "Êtes-vous sûr de vouloir supprimer cette tâche?"
       }
     }
   }

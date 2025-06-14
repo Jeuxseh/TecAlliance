@@ -12,7 +12,8 @@
     "LOGIN": {
       "LOGIN": "Anmelden",
       "EMAIL": "E-Mail",
-      "INIT_SESION": "Sitzung starten"
+      "NO_EMAIL_ERROR": "Ungültige E-Mail. Bitte geben Sie eine E-Mail ein.",
+      "INVALID_EMAIL": "Ungültige E-Mail. Bitte geben Sie eine gültige E-Mail ein."
     },
     "HOME": {
       "MY_TODO_LIST": "Meine Aufgabenliste",
@@ -24,7 +25,8 @@
         "TITLE": "Aufgabe bearbeiten"
       },
       "CONFIRM_MODAL": {
-        "TITLE": "Löschung bestätigen"
+        "TITLE": "Löschung bestätigen",
+        "CONFIRM_MESSAGE": "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?"
       }
     }
   }

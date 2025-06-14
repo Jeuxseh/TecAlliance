@@ -29,10 +29,10 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   dropdownOpen = false;
   languages = [
-    { code: 'es', label: 'Español', flag: 'assets/images/es-flag.png'},
-    { code: 'en', label: 'English', flag: 'assets/images/en-flag.png'},
-    { code: 'fr', label: 'Français', flag: 'assets/images/fr-flag.png'},
-    { code: 'de', label: 'Deutsch', flag: 'assets/images/de-flag.png'}
+    { code: 'ES', label: 'Español', flag: 'assets/images/es-flag.png'},
+    { code: 'EN', label: 'English', flag: 'assets/images/en-flag.png'},
+    { code: 'FR', label: 'Français', flag: 'assets/images/fr-flag.png'},
+    { code: 'DE', label: 'Deutsch', flag: 'assets/images/de-flag.png'}
   ];
   selectedLang!: { code: string; label: string; flag: string };
 
@@ -45,19 +45,19 @@ export class HeaderComponent {
     const defaultLanguage = 'en';
 
     const langCode = savedCode || browserLang || defaultLanguage;
-    const foundLang = this.languages.find(l => l.code === langCode);
+    const foundLang = this.languages.find(l => l.code.toLowerCase() === langCode.toLowerCase());
 
-    this.selectedLang = foundLang ?? this.languages.find(l => l.code === defaultLanguage)!;
+    this.selectedLang = foundLang ?? this.languages.find(l => l.code.toLowerCase() === defaultLanguage)!;
 
-    this.translate.use(this.selectedLang.code);
+    this.translate.use(this.selectedLang.code.toLowerCase());
   }
 
   changeLanguage(langCode: string) {
-    const selected = this.languages.find(l => l.code === langCode);
+    const selected = this.languages.find(l => l.code.toLowerCase() === langCode.toLowerCase());
     if (selected) {
       this.selectedLang = selected;
-      this.translate.use(selected.code);
-      localStorage.setItem('lang', selected.code);
+      this.translate.use(selected.code.toLowerCase());
+      localStorage.setItem('lang', selected.code.toLowerCase());
       setTimeout(() => {
         this.dropdownOpen = false;
       }, 10);

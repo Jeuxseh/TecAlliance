@@ -12,7 +12,8 @@
   "LOGIN": {
     "LOGIN": "Iniciar sesión",
     "EMAIL": "Correo electrónico",
-    "INIT_SESION": "Iniciar sesión"
+    "NO_EMAIL_ERROR": "Correo inválido. Por favor, introduzca un correo.",
+    "INVALID_EMAIL": "Correo inválido. Introduzca un correo válido."
   },
   "HOME": {
     "MY_TODO_LIST": "Mi lista de tareas",
@@ -24,7 +25,8 @@
       "TITLE": "Editar tarea"
     },
     "CONFIRM_MODAL": {
-      "TITLE": "Confirmar eliminación"
+      "TITLE": "Confirmar eliminación",
+      "CONFIRM_MESSAGE": "¿Estás seguro de eliminar este Todo?"
     }
   }
 }
