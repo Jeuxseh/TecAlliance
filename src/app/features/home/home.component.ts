@@ -81,7 +81,8 @@ export class HomeComponent {
     this.editDialog.open(EditTodoModalComponent, {
       data: { 
         description: todo.title 
-      }
+      },
+      width: '500px',
     }).afterClosed().subscribe(newTitle => {
       if (newTitle) {
         todo.loading = true;
@@ -92,7 +93,8 @@ export class HomeComponent {
 
   confirmDelete(todo: Todo) {
     this.confirmDeleteDialog.open(ConfirmModalComponent, {
-      data: { message: '¿Estás seguro de eliminar esta tarea?' }
+      data: { message: '¿Estás seguro de eliminar esta tarea?' },
+      width: '500px',
     }).afterClosed().subscribe(result => {
       if (result) {
         todo.loading = true;

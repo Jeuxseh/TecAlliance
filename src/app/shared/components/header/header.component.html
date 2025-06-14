@@ -1,14 +1,20 @@
 <mat-toolbar class="nav-container" color="primary">
-    <div>
-        <span class="title">TecAlliance</span>
-        <mat-form-field appearance="fill" style="width: 200px;">
-            <mat-label>{{ 'HEADER.LANGUAGE' | translate }}</mat-label>
-            <mat-select [value]="selectedLang" (selectionChange)="changeLanguage($event.value)">
-              <mat-option *ngFor="let lang of languages" [value]="lang.code">
-                {{ lang.label }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+    <div class="logo-lng-container">
+        <img src="assets/images/TecAlliance_logo.svg" alt="logo">
+        <div class="language-selector" (click)="toggleDropdown()" [class.open]="dropdownOpen">
+          <div class="selected-lang">
+            <img [src]="selectedLang.flag" alt="{{ selectedLang.code }}" />
+            <span>{{ selectedLang.code }}</span>
+            <span class="arrow">▼</span>
+          </div>
+        
+          <ul *ngIf="dropdownOpen" class="dropdown">
+            <li *ngFor="let lang of languages" (click)="changeLanguage(lang.code)">
+              <img [src]="lang.flag" alt="{{ lang.code }}" />
+              <span class="lang-label">{{ lang.label }}</span>
+            </li>
+          </ul>
+        </div>
     </div>
     <div class="buttons-container">
         <a mat-button routerLink="/home">{{ 'HEADER.HOME' | translate }}</a>

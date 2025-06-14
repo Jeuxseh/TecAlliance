@@ -25,31 +25,48 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
-  selectedLang: string = 'en';
-  languages = [
-    { code: 'es', label: 'Español' },
-    { code: 'en', label: 'English' },
-    { code: 'fr', label: 'Français' },
-    { code: 'de', label: 'Deutsch' }
-  ];
 
-  constructor (
+export class HeaderComponent {
+  dropdownOpen = false;
+  languages = [
+    { code: 'es', label: 'Español', flag: 'assets/images/es-flag.png'},
+    { code: 'en', label: 'English', flag: 'assets/images/en-flag.png'},
+    { code: 'fr', label: 'Français', flag: 'assets/images/fr-flag.png'},
+    { code: 'de', label: 'Deutsch', flag: 'assets/images/de-flag.png'}
+  ];
+  selectedLang!: { code: string; label: string; flag: string };
+
+  constructor(
     private translate: TranslateService,
     private authService: AuthService
   ) {
-    const savedLang = localStorage.getItem('lang');
-    const defaultLang = savedLang || translate.getBrowserLang() || 'en';
-    this.selectedLang = this.languages.some(l => l.code === defaultLang) ? defaultLang : 'en';
-    this.translate.use(this.selectedLang);
+    const savedCode = localStorage.getItem('lang');
+    const browserLang = this.translate.getBrowserLang();
+    const defaultLanguage = 'en';
+
+    const langCode = savedCode || browserLang || defaultLanguage;
+    const foundLang = this.languages.find(l => l.code === langCode);
+
+    this.selectedLang = foundLang ?? this.languages.find(l => l.code === defaultLanguage)!;
+
+    this.translate.use(this.selectedLang.code);
   }
 
-  changeLanguage(lang: string) {
-    this.selectedLang = lang;
-    this.translate.use(lang);
-    localStorage.setItem('lang', lang);
+  changeLanguage(langCode: string) {
+    const selected = this.languages.find(l => l.code === langCode);
+    if (selected) {
+      this.selectedLang = selected;
+      this.translate.use(selected.code);
+      localStorage.setItem('lang', selected.code);
+      setTimeout(() => {
+        this.dropdownOpen = false;
+      }, 10);
+    }
   }
 
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
 
   public logOut() {
     this.authService.logout();
