@@ -1,0 +1,31 @@
+{
+    "SHARED": {
+      "CONFIRM": "Confirmer",
+      "CANCEL": "Annuler"
+    },
+    "HEADER": {
+      "HOME": "Accueil",
+      "ABOUT": "À propos",
+      "LOGOUT": "Déconnexion",
+      "LANGUAGE": "Langue"
+    },
+    "LOGIN": {
+      "LOGIN": "Connexion",
+      "EMAIL": "Email",
+      "INIT_SESION": "Démarrer la session"
+    },
+    "HOME": {
+      "MY_TODO_LIST": "Ma liste de tâches",
+      "ADD_TODO": "Ajouter une tâche...",
+      "ADD": "Ajouter"
+    },
+    "MODALS": {
+      "EDIT_MODAL": {
+        "TITLE": "Modifier la tâche"
+      },
+      "CONFIRM_MODAL": {
+        "TITLE": "Confirmer la suppression"
+      }
+    }
+  }
+  

@@ -17,6 +17,7 @@ import { User } from '../../core/models/user.model';
 import { EditTodoModalComponent } from '../../shared/components/edit-todo-modal/edit-todo-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmModalComponent } from '../../shared/components/confirm-delete-modal/confirm-delete-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -33,7 +34,8 @@ import { ConfirmModalComponent } from '../../shared/components/confirm-delete-mo
     MatFormFieldModule,
     MatListModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

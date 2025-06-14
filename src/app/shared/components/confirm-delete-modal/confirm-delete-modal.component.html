@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>Confirmación</h2>
+<h2 mat-dialog-title>{{ 'MODALS.CONFIRM_MODAL.TITLE' | translate }}</h2>
     <mat-dialog-content>{{ data.message }}</mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button (click)="cancel()">Cancelar</button>
-        <button mat-button color="warn" (click)="confirm()">Confirmar</button>
+        <button mat-button (click)="cancel()">{{ 'SHARED.CANCEL' | translate }}</button>
+        <button mat-button color="warn" (click)="confirm()">{{ 'SHARED.CONFIRM' | translate }}</button>
 </mat-dialog-actions>

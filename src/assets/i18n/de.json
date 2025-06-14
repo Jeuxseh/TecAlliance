@@ -1,0 +1,31 @@
+{
+    "SHARED": {
+      "CONFIRM": "Bestätigen",
+      "CANCEL": "Abbrechen"
+    },
+    "HEADER": {
+      "HOME": "Startseite",
+      "ABOUT": "Über uns",
+      "LOGOUT": "Abmelden",
+      "LANGUAGE": "Sprache"
+    },
+    "LOGIN": {
+      "LOGIN": "Anmelden",
+      "EMAIL": "E-Mail",
+      "INIT_SESION": "Sitzung starten"
+    },
+    "HOME": {
+      "MY_TODO_LIST": "Meine Aufgabenliste",
+      "ADD_TODO": "Aufgabe hinzufügen...",
+      "ADD": "Hinzufügen"
+    },
+    "MODALS": {
+      "EDIT_MODAL": {
+        "TITLE": "Aufgabe bearbeiten"
+      },
+      "CONFIRM_MODAL": {
+        "TITLE": "Löschung bestätigen"
+      }
+    }
+  }
+  

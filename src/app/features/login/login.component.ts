@@ -8,11 +8,20 @@ import { AuthService } from '../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../core/services/user/user.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule],
+  imports: [
+    CommonModule, 
+    FormsModule,
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatButtonModule, 
+    MatCardModule,
+    TranslateModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

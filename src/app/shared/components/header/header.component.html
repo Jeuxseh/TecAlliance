@@ -1,8 +1,18 @@
 <mat-toolbar class="nav-container" color="primary">
-    <span class="title">TechAlliance ToDo list</span>
-    <div class="buttons-container">
-        <a mat-button routerLink="/home">Home</a>
-        <a mat-button routerLink="/about">About</a>
+    <div>
+        <span class="title">TecAlliance</span>
+        <mat-form-field appearance="fill" style="width: 200px;">
+            <mat-label>{{ 'HEADER.LANGUAGE' | translate }}</mat-label>
+            <mat-select [value]="selectedLang" (selectionChange)="changeLanguage($event.value)">
+              <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                {{ lang.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
     </div>
-    <a mat-flat-button class="logout-button" (click)="logOut()">Logout</a>
+    <div class="buttons-container">
+        <a mat-button routerLink="/home">{{ 'HEADER.HOME' | translate }}</a>
+        <a mat-button routerLink="/about">{{ 'HEADER.ABOUT' | translate }}</a>
+    </div>
+    <a mat-flat-button class="logout-button" (click)="logOut()">{{ 'HEADER.LOGOUT' | translate }}</a>
 </mat-toolbar>

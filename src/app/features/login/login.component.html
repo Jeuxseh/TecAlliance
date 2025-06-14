@@ -1,19 +1,19 @@
 <div class="login-container">
   <mat-card class="login-card">
-    <mat-card-title class="title">Login</mat-card-title>
+    <mat-card-title class="title">{{ 'LOGIN.LOGIN' | translate }}</mat-card-title>
     <mat-card-content class="card-content">
       <form class="form-container" (ngSubmit)="login()">
 
         <div>
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Email</mat-label>
+            <mat-label>{{ 'LOGIN.EMAIL' | translate }}</mat-label>
             <input matInput [(ngModel)]="email" name="email" required />
           </mat-form-field>
           <p class="error" [class.visible]="!!error">{{ error || '' }}</p>
         </div>
 
         <button mat-flat-button color="primary" type="submit" class="login-button">
-          Iniciar sesión
+          {{ 'LOGIN.INIT_SESION' | translate }}
         </button>
       </form>
 

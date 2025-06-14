@@ -2,14 +2,14 @@
 <section class="todo-container">
 
     <mat-card class="todo-card">
-      <mat-card-title class="title">Lista de ToDos</mat-card-title>
+      <mat-card-title class="title">{{ 'HOME.MY_TODO_LIST' | translate }}</mat-card-title>
       <form [formGroup]="newTodoForm" (ngSubmit)="addTodo()" class="todo-form">
         <mat-form-field appearance="outline" class="todo-input">
-            <mat-label>Add Todo...</mat-label>
+            <mat-label>{{ 'HOME.ADD_TODO' | translate }}</mat-label>
             <input matInput formControlName="title" maxlength="250" />
         </mat-form-field>
         <button mat-flat-button color="primary" type="submit" [disabled]="newTodoForm.invalid">
-            Agregar
+          {{ 'HOME.ADD' | translate }}
         </button>
       </form>
     </mat-card>

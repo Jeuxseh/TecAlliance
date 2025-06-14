@@ -1,0 +1,30 @@
+{
+  "SHARED": {
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel"
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "LOGOUT": "Logout",
+    "LANGUAGE": "Language"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "EMAIL": "Email",
+    "INIT_SESION": "Init sesion"
+  },
+  "HOME": {
+    "MY_TODO_LIST":"My Todo list",
+    "ADD_TODO": "Add Todo...",
+    "ADD": "Add"
+  },
+  "MODALS": {
+    "EDIT_MODAL": {
+      "TITLE": "Edit Todo"
+    },
+    "CONFIRM_MODAL": {
+      "TITLE": "Confirm delete"
+    }
+  }
+}
