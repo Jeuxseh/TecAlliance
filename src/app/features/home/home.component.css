@@ -36,6 +36,11 @@
   
 .todo-item {
     padding: 0;
+    border-bottom: 1px solid lightgray;
+    :hover {
+        cursor: pointer;
+        background-color: #f4f6f6 ;
+    }
 }
   
 .todo-content {

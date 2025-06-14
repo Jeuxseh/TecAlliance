@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Editar tarea</h2>
+<mat-dialog-content>
+    <mat-form-field appearance="fill" class="w-full">
+    <input matInput [(ngModel)]="description" maxlength="250" />
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button color="primary" (click)="save()" [disabled]="!description.trim()">Guardar</button>
+    <button mat-button (click)="cancel()">Cancelar</button>
+</mat-dialog-actions>

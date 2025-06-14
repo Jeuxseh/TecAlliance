@@ -25,7 +25,7 @@ export class TodoService {
   addTodo(title: string) {
     const currentUser = this.userService.getCurrentUser();
     const newTodo: Todo = {
-      id: Math.random() * 100,
+      id: Math.floor(Math.random() * 100),
       title,
       completed: false,
       userId: currentUser ? currentUser.id : 0

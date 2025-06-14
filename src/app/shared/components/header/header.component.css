@@ -11,5 +11,10 @@
       display: flex;
       gap: 10px;
     }
+
+    .logout-button {
+      background-color: black;
+      text-color: white;
+    }
   }
   

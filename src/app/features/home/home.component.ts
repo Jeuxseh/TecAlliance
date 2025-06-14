@@ -14,6 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UserService } from '../../core/services/user/user.service';
 import { User } from '../../core/models/user.model';
+import { EditTodoModalComponent } from '../../shared/components/edit-todo-modal/edit-todo-modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmModalComponent } from '../../shared/components/confirm-delete-modal/confirm-delete-modal.component';
+
 
 @Component({
   selector: 'app-home',
@@ -40,7 +44,9 @@ export class HomeComponent {
   constructor(
     private todoService: TodoService,
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private editDialog: MatDialog,
+    private confirmDeleteDialog: MatDialog
   ) {
     this.newTodoForm = fb.group({
       title: ["", [Validators.required, Validators.maxLength(250)]]
@@ -69,16 +75,26 @@ export class HomeComponent {
   }
 
   edit(todo: Todo) {
-    const newDesc = prompt('Nueva descripción:', todo.title);
-    if (newDesc?.trim()) {
-      this.todoService.updateTodo({ ...todo, title: newDesc });
-    }
+    console.log(todo);
+    this.editDialog.open(EditTodoModalComponent, {
+      data: { 
+        description: todo.title 
+      }
+    }).afterClosed().subscribe(newTitle => {
+      if (newTitle) {
+        this.todoService.updateTodo({ ...todo, title: newTitle });
+      }
+    });
   }
 
-  confirmDelete(todo: Todo) {
-    if (confirm('¿Quieres eliminar este este Todo?')) {
-      this.todoService.deleteTodo(todo.id);
-    }
+  confirmDelete(id: number) {
+    this.confirmDeleteDialog.open(ConfirmModalComponent, {
+      data: { message: '¿Estás seguro de eliminar esta tarea?' }
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.todoService.deleteTodo(id);
+      }
+    });
   }
 
 
