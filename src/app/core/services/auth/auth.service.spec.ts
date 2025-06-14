@@ -1,6 +1,6 @@
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { instance, mock } from 'ts-mockito';
+import { instance, mock, reset, verify } from 'ts-mockito';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -14,4 +14,5 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
 });

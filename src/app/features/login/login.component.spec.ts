@@ -1,9 +1,10 @@
-import { mock, instance, when } from 'ts-mockito';
+import { mock, instance, when, resetCalls, verify } from 'ts-mockito';
 import { LoginComponent } from './login.component';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../core/services/user/user.service';
+import { of } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -18,6 +19,9 @@ describe('LoginComponent', () => {
   
 
   beforeEach(async () => {
+    when(mockTranslateService.instant('LOGIN.NO_EMAIL_ERROR')).thenReturn('No email provided');
+    when(mockTranslateService.instant('LOGIN.INVALID_EMAIL')).thenReturn('Invalid email');
+
     component = new LoginComponent(
       authService,
       router,
@@ -26,7 +30,44 @@ describe('LoginComponent', () => {
     );
   });
 
+  afterEach(() => {
+    resetCalls(mockAuthService);
+    resetCalls(mockRouter);
+    resetCalls(mockUserService);
+    resetCalls(mockTranslateService);
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set error if email is empty', () => {
+    component.email = '';
+    component.login();
+    expect(component.error).toBe('No email provided');
+    verify(mockTranslateService.instant('LOGIN.NO_EMAIL_ERROR')).once();
+  });
+
+  it('should set error if validateEmail returns false', () => {
+    component.email = 'test@example.com';
+    when(mockUserService.validateEmail('test@example.com')).thenReturn(of(false));
+
+    component.login();
+
+    expect(component.error).toBe('Invalid email');
+    verify(mockUserService.validateEmail('test@example.com')).once();
+    verify(mockTranslateService.instant('LOGIN.INVALID_EMAIL')).once();
+  });
+
+  it('should call login and navigate if validateEmail returns true', () => {
+    component.email = 'test@example.com';
+    when(mockUserService.validateEmail('test@example.com')).thenReturn(of(true));
+
+    component.login();
+
+    expect(component.error).toBe('');
+    verify(mockUserService.validateEmail('test@example.com')).once();
+    verify(mockAuthService.login()).once();
+    verify(mockRouter.navigateByUrl('/home')).once();
   });
 });

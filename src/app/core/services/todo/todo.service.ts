@@ -13,7 +13,10 @@ export class TodoService {
 
   private apiUrl = 'https://jsonplaceholder.typicode.com/todos'
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(
+    private http: HttpClient, 
+    private userService: UserService
+  ) {}
 
   loadTodos(userId: number) {
     const params = new HttpParams().set('userId', userId);
