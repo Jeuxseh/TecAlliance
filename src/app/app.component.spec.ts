@@ -1,16 +1,18 @@
-import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TranslateService } from '@ngx-translate/core';
+import { mock, instance } from 'ts-mockito';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let mockTranslateService: TranslateService = mock(TranslateService);
+  let translateService = instance(mockTranslateService);
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
+    component = new AppComponent(
+        translateService
+    );
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

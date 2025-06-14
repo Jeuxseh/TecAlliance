@@ -1,13 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { instance, mock } from 'ts-mockito';
 
 describe('AuthService', () => {
   let service: AuthService;
+  let mockRouter: Router = mock(Router);
+  let router = instance(mockRouter);
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
+    service = new AuthService(router);
   });
 
   it('should be created', () => {

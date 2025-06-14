@@ -1,20 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ConfirmModalComponent } from './confirm-delete-modal.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { mock, instance } from 'ts-mockito';
 
-import { ConfirmDeleteModalComponent } from './confirm-delete-modal.component';
 
-describe('ConfirmDeleteModalComponent', () => {
-  let component: ConfirmDeleteModalComponent;
-  let fixture: ComponentFixture<ConfirmDeleteModalComponent>;
+describe('ConfirmModalComponent', () => {
+  let component: ConfirmModalComponent;
+
+  let mockDialogRef: MatDialogRef<ConfirmModalComponent> = mock(MatDialogRef);
+  let dialogRef = instance(mockDialogRef);
+
+  const mockData = { message: '¿Estás seguro?' };
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ConfirmDeleteModalComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ConfirmDeleteModalComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new ConfirmModalComponent(dialogRef, mockData);
   });
 
   it('should create', () => {

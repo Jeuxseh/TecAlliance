@@ -101,6 +101,7 @@
   .buttons-container {
     display: flex;
     gap: 16px;
+    margin-right: 10%;
 
     a[mat-button] {
       color: white;
