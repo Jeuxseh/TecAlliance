@@ -1,11 +1,22 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="login()">
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" required />
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
-    </form>
-    <p *ngIf="error" class="error">{{ error }}</p>
+  <mat-card class="login-card">
+    <mat-card-title class="title">Login</mat-card-title>
+    <mat-card-content class="card-content">
+      <form class="form-container" (ngSubmit)="login()">
+
+        <div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" name="email" required />
+          </mat-form-field>
+          <p class="error" [class.visible]="!!error">{{ error || '' }}</p>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" class="login-button">
+          Iniciar sesión
+        </button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
 </div>
