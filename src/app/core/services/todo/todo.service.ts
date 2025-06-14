@@ -40,7 +40,7 @@ export class TodoService {
   updateTodo(updatedTodo: Todo) {
     this.http.put(`${this.apiUrl}/${updatedTodo.id}`, updatedTodo).subscribe(() => {
       const current = this.todosSubject.value.map((todo: Todo) =>
-        todo.id === updatedTodo.id ? updatedTodo : todo
+        todo.id === updatedTodo.id ? { ...updatedTodo, loading: false } : todo
       );
       this.todosSubject.next(current);
     });

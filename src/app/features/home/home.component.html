@@ -26,6 +26,7 @@
             </div>
   
             <div class="todo-actions">
+                <span *ngIf="todo.loading" class="loader"></span>
                 <button mat-icon-button color="accent" (click)="edit(todo)">
                     <mat-icon>edit</mat-icon>
                 </button>

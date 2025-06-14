@@ -71,6 +71,7 @@ export class HomeComponent {
   }
 
   toggle(todo: Todo) {
+    todo.loading = true;
     this.todoService.toggleTodo(todo);
   }
 
@@ -82,6 +83,7 @@ export class HomeComponent {
       }
     }).afterClosed().subscribe(newTitle => {
       if (newTitle) {
+        todo.loading = true;
         this.todoService.updateTodo({ ...todo, title: newTitle });
       }
     });
