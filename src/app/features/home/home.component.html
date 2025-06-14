@@ -1,8 +1,8 @@
 <app-header></app-header>
 <section class="todo-container">
+
     <mat-card class="todo-card">
       <mat-card-title class="title">Lista de ToDos</mat-card-title>
-  
       <form [formGroup]="newTodoForm" (ngSubmit)="addTodo()" class="todo-form">
         <mat-form-field appearance="outline" class="todo-input">
             <mat-label>Add Todo...</mat-label>
@@ -30,10 +30,11 @@
                 <button mat-icon-button color="accent" (click)="edit(todo)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button color="warn" (click)="confirmDelete(todo.id)">
+                <button mat-icon-button color="warn" (click)="confirmDelete(todo)">
                     <mat-icon color="warn">delete</mat-icon>
                 </button>
             </div>
+            
           </div>
         </mat-list-item>
       </mat-list>

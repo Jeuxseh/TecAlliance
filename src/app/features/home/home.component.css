@@ -87,7 +87,7 @@
     border-radius: 50%;
     position: relative;
     text-indent: -9999em;
-    animation: mulShdSpin 1s infinite linear;
+    animation: mulShdSpin 0.8s infinite linear;
     transform: translateZ(0);
 }
   

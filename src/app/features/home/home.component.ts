@@ -76,7 +76,6 @@ export class HomeComponent {
   }
 
   edit(todo: Todo) {
-    console.log(todo);
     this.editDialog.open(EditTodoModalComponent, {
       data: { 
         description: todo.title 
@@ -89,12 +88,13 @@ export class HomeComponent {
     });
   }
 
-  confirmDelete(id: number) {
+  confirmDelete(todo: Todo) {
     this.confirmDeleteDialog.open(ConfirmModalComponent, {
       data: { message: '¿Estás seguro de eliminar esta tarea?' }
     }).afterClosed().subscribe(result => {
       if (result) {
-        this.todoService.deleteTodo(id);
+        todo.loading = true;
+        this.todoService.deleteTodo(todo.id);
       }
     });
   }
