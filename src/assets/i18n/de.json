@@ -48,13 +48,15 @@
       "RESPONSIVE": "Responsives Design: Vollständig optimiert für Desktop, Tablet und Mobilgeräte",
       "MODULAR": "Modulare Architektur: Angular-Module unterstützen Wartbarkeit und Skalierbarkeit",
       "ROUTING": "Dynamisches Routing: Ermöglicht nahtlose Navigation zwischen Seiten",
-      "STATE": "Zustandsverwaltung: Effizientes Handling mit Angular Services und RxJS"
+      "STATE": "Zustandsverwaltung: Effizientes Handling mit Angular Services und RxJS",
+      "LOCALIZATION": "Lokalisierung: Textübersetzung basierend auf der gewählten Sprache"
     },
     "TECH": {
       "TITLE": "Implementierung & Technologiestack",
       "INTRO": "Die Anwendung wurde mit modernen Frontend-Technologien entwickelt, mit Fokus auf Leistung und sauberer Architektur.",
       "ANGULAR_CLI": "Angular CLI: Für Codegenerierung und Entwicklungsworkflow",
       "RXJS": "RxJS: Für reaktive Programmiermuster",
+      "NGX": "NGX: Für reaktive Übersetzungsverwaltung",
       "MATERIAL": "Angular Material: Für responsive UI-Komponenten",
       "GIT": "Git: Versionskontrolle und Teamarbeit",
       "TS_MOCKITO": "Ts-mockito: Für Unit-Tests und Mocks",

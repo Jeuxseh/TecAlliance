@@ -48,13 +48,15 @@
       "RESPONSIVE": "Design réactif : Entièrement optimisé pour ordinateurs, tablettes et appareils mobiles",
       "MODULAR": "Architecture modulaire : Les modules Angular facilitent la maintenabilité et l’évolutivité",
       "ROUTING": "Routage dynamique : Permet une navigation fluide entre les pages",
-      "STATE": "Gestion d'état : Traitement efficace avec les services Angular et RxJS"
+      "STATE": "Gestion d'état : Traitement efficace avec les services Angular et RxJS",
+      "LOCALIZTION": "Localisation : Traduction des textes selon la langue sélectionnée"
     },
     "TECH": {
       "TITLE": "Implémentation et stack technologique",
       "INTRO": "L'application est développée avec des technologies frontend modernes, axée sur la performance et une architecture propre.",
       "ANGULAR_CLI": "Angular CLI : Pour la génération de code et le flux de développement",
       "RXJS": "RxJS : Pour les modèles de programmation réactive",
+      "NGX": "NGX : Pour la gestion des traductions réactives",
       "MATERIAL": "Angular Material : Pour les composants d'interface utilisateur réactifs",
       "GIT": "Git : Contrôle de version et collaboration en équipe",
       "TS_MOCKITO": "Ts-mockito : Pour les tests unitaires et les mocks",
