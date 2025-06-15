@@ -39,9 +39,9 @@ describe('TodoService', () => {
       done();
     });
 
-    verify(mockHttpClient.get<Todo[]>(service['apiUrl'], anything())).once();
+    verify(mockHttpClient.get<Todo[]>(service['todosApiUrl'], anything())).once();
     const [url] = capture(mockHttpClient.get).last();
-    expect(url).toBe(service['apiUrl']);
+    expect(url).toBe(service['todosApiUrl']);
   });
 
   it('addTodo should post new todo and update todosSubject', done => {
@@ -61,7 +61,7 @@ describe('TodoService', () => {
       done();
     });
 
-    verify(mockHttpClient.post(service['apiUrl'], anything())).once();
+    verify(mockHttpClient.post(service['todosApiUrl'], anything())).once();
   });
 
   it('addTodo should set userId to 0 if getCurrentUser returns null', done => {
@@ -80,7 +80,7 @@ describe('TodoService', () => {
       done();
     });
   
-    verify(mockHttpClient.post(service['apiUrl'], anything())).once();
+    verify(mockHttpClient.post(service['todosApiUrl'], anything())).once();
   });
 
   it('updateTodo should call http.put and update todosSubject', done => {
@@ -99,7 +99,7 @@ describe('TodoService', () => {
       done();
     });
 
-    verify(mockHttpClient.put(`${service['apiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
+    verify(mockHttpClient.put(`${service['todosApiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
   });
 
   it('updateTodo should leave other todos untouched if ids do not match', done => {
@@ -123,7 +123,7 @@ describe('TodoService', () => {
       done();
     });
   
-    verify(mockHttpClient.put(`${service['apiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
+    verify(mockHttpClient.put(`${service['todosApiUrl']}/${updatedTodo.id}`, updatedTodo)).once();
   });
 
   it('deleteTodo should call http.delete and update todosSubject', done => {
@@ -141,7 +141,7 @@ describe('TodoService', () => {
       done();
     });
 
-    verify(mockHttpClient.delete(`${service['apiUrl']}/1`)).once();
+    verify(mockHttpClient.delete(`${service['todosApiUrl']}/1`)).once();
   });
 
   it('toggleTodo should call http.put with toggled completed', fakeAsync(() => {

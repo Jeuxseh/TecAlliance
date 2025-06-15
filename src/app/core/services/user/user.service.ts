@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class UserService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   user$ = this.currentUserSubject.asObservable();
   
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users'
+  private usersApiUrl = environment.usersApiUrl;
   
   constructor(private http: HttpClient) {
     const storedEmail = localStorage.getItem('userEmail');
@@ -20,7 +21,7 @@ export class UserService {
   }
 
   validateEmail(email: string): Observable<boolean> {
-    return this.http.get<User[]>(this.apiUrl).pipe(
+    return this.http.get<User[]>(this.usersApiUrl).pipe(
       map((users: User[]) => {
         const currentUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
         if(currentUser) {
