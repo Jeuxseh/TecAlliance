@@ -1,0 +1,67 @@
+{
+  "SHARED": {
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel"
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "LOGOUT": "Logout",
+    "LANGUAGE": "Language"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "EMAIL": "Email",
+    "NO_EMAIL_ERROR": "Invalid email. Please enter an email.",
+    "INVALID_EMAIL": "Invalid email. Please enter a valid email."
+  },
+  "HOME": {
+    "MY_TODO_LIST":"My Todo list",
+    "ADD_TODO": "Add Todo...",
+    "ADD": "Add"
+  },
+  "MODALS": {
+    "EDIT_MODAL": {
+      "TITLE": "Edit Todo"
+    },
+    "CONFIRM_MODAL": {
+      "TITLE": "Confirm delete",
+      "CONFIRM_MESSAGE": "Are you sure you want to delete this todo?"
+    }
+  },
+  "ABOUT": {
+    "TITLE": "About This Project",
+    "SUBTITLE": "Discover the goals, features, and technical details of this Angular-based application.",
+    "OVERVIEW": {
+      "TITLE": "Project Overview",
+      "P1": "This project is a modern frontend application built with Angular. It aims to present information about TecAlliance's services through an intuitive interface with responsive and dynamic components.",
+      "P2": "The architecture prioritizes modularity, scalability, and maintainability, ensuring the solution is robust and adaptable to future enhancements.",
+      "ACHIEVEMENTS": {
+        "TITLE": "Key Achievements:",
+        "LOCALIZATION": "Localization support for international users",
+        "TEST_COVERAGE": "Full test coverage ensuring stability and reliability"
+      }
+    },
+    "FEATURES": {
+      "TITLE": "Core Features",
+      "HEADER": "Reusable Header: Provides navigation and branding across the app",
+      "RESPONSIVE": "Responsive Design: Fully optimized for desktops, tablets, and mobile devices",
+      "MODULAR": "Modular Architecture: Angular modules support maintainability and scalability",
+      "ROUTING": "Dynamic Routing: Enables seamless page navigation",
+      "STATE": "State Management: Efficient handling with Angular services and RxJS",
+      "LOCALIZATION": "Localization: Text translation based on selected language"
+    },
+    "TECH": {
+      "TITLE": "Implementation & Tech Stack",
+      "INTRO": "The application is developed using modern frontend technologies, focusing on performance and clean architecture.",
+      "ANGULAR_CLI": "Angular CLI: For scaffolding and development flow",
+      "RXJS": "RxJS: For reactive programming patterns",
+      "NGX": "NGX: For reactive translations management",
+      "MATERIAL": "Angular Material: For responsive UI components",
+      "GIT": "Git: Version control and team collaboration",
+      "TS_MOCKITO": "Ts-mockito: For unit testing and mocking",
+      "CONCLUSION": "Development followed an iterative approach, with rigorous testing and debugging to ensure reliability and quality at every stage."
+    }
+  }
+  
+}

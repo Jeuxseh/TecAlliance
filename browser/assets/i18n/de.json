@@ -1,0 +1,67 @@
+{
+  "SHARED": {
+    "CONFIRM": "Bestätigen",
+    "CANCEL": "Abbrechen"
+  },
+  "HEADER": {
+    "HOME": "Startseite",
+    "ABOUT": "Über uns",
+    "LOGOUT": "Abmelden",
+    "LANGUAGE": "Sprache"
+  },
+  "LOGIN": {
+    "LOGIN": "Anmelden",
+    "EMAIL": "E-Mail",
+    "NO_EMAIL_ERROR": "Ungültige E-Mail. Bitte geben Sie eine E-Mail ein.",
+    "INVALID_EMAIL": "Ungültige E-Mail. Bitte geben Sie eine gültige E-Mail ein."
+  },
+  "HOME": {
+    "MY_TODO_LIST": "Meine Aufgabenliste",
+    "ADD_TODO": "Aufgabe hinzufügen...",
+    "ADD": "Hinzufügen"
+  },
+  "MODALS": {
+    "EDIT_MODAL": {
+      "TITLE": "Aufgabe bearbeiten"
+    },
+    "CONFIRM_MODAL": {
+      "TITLE": "Löschung bestätigen",
+      "CONFIRM_MESSAGE": "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?"
+    }
+  },
+  "ABOUT": {
+    "TITLE": "Über dieses Projekt",
+    "SUBTITLE": "Entdecken Sie die Ziele, Funktionen und technischen Details dieser Angular-basierten Anwendung.",
+    "OVERVIEW": {
+      "TITLE": "Projektübersicht",
+      "P1": "Dieses Projekt ist eine moderne Frontend-Anwendung, die mit Angular entwickelt wurde. Ziel ist es, Informationen über die Dienstleistungen von TecAlliance über eine intuitive Benutzeroberfläche mit responsiven und dynamischen Komponenten bereitzustellen.",
+      "P2": "Die Architektur legt Wert auf Modularität, Skalierbarkeit und Wartbarkeit und stellt so eine robuste und zukunftsfähige Lösung sicher.",
+      "ACHIEVEMENTS": {
+        "TITLE": "Wichtigste Erfolge:",
+        "LOCALIZATION": "Lokalisierungsunterstützung für internationale Benutzer",
+        "TEST_COVERAGE": "Vollständige Testabdeckung zur Sicherstellung von Stabilität und Zuverlässigkeit"
+      }
+    },
+    "FEATURES": {
+      "TITLE": "Hauptfunktionen",
+      "HEADER": "Wiederverwendbarer Header: Bietet Navigation und Branding in der gesamten App",
+      "RESPONSIVE": "Responsives Design: Vollständig optimiert für Desktop, Tablet und Mobilgeräte",
+      "MODULAR": "Modulare Architektur: Angular-Module unterstützen Wartbarkeit und Skalierbarkeit",
+      "ROUTING": "Dynamisches Routing: Ermöglicht nahtlose Navigation zwischen Seiten",
+      "STATE": "Zustandsverwaltung: Effizientes Handling mit Angular Services und RxJS",
+      "LOCALIZATION": "Lokalisierung: Textübersetzung basierend auf der gewählten Sprache"
+    },
+    "TECH": {
+      "TITLE": "Implementierung & Technologiestack",
+      "INTRO": "Die Anwendung wurde mit modernen Frontend-Technologien entwickelt, mit Fokus auf Leistung und sauberer Architektur.",
+      "ANGULAR_CLI": "Angular CLI: Für Codegenerierung und Entwicklungsworkflow",
+      "RXJS": "RxJS: Für reaktive Programmiermuster",
+      "NGX": "NGX: Für reaktive Übersetzungsverwaltung",
+      "MATERIAL": "Angular Material: Für responsive UI-Komponenten",
+      "GIT": "Git: Versionskontrolle und Teamarbeit",
+      "TS_MOCKITO": "Ts-mockito: Für Unit-Tests und Mocks",
+      "CONCLUSION": "Die Entwicklung erfolgte iterativ mit strengen Tests und Debugging, um Zuverlässigkeit und Qualität in jeder Phase sicherzustellen."
+    }
+  }
+}
+  
