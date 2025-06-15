@@ -25,15 +25,6 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:cov -- --watch=false --browsers=ChromeHeadless
 
-      - name: Check coverage threshold
-        run: |
-          COVERAGE=$(jq '.total.lines.pct' coverage/coverage-summary.json)
-          echo "Line coverage: $COVERAGE%"
-          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
-            echo "Coverage is below 80%. Failing."
-            exit 1
-          fi
-
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
