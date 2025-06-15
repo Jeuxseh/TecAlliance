@@ -28,5 +28,37 @@
       "TITLE": "Confirmar eliminación",
       "CONFIRM_MESSAGE": "¿Estás seguro de eliminar este Todo?"
     }
+  },
+  "ABOUT": {
+    "TITLE": "Acerca de este proyecto",
+    "SUBTITLE": "Descubre los objetivos, características y detalles técnicos de esta aplicación basada en Angular.",
+    "OVERVIEW": {
+      "TITLE": "Resumen del proyecto",
+      "P1": "Este proyecto es una aplicación frontend moderna construida con Angular. Su objetivo es presentar información sobre los servicios de TecAlliance a través de una interfaz intuitiva con componentes dinámicos y responsivos.",
+      "P2": "La arquitectura prioriza la modularidad, escalabilidad y mantenibilidad, asegurando una solución robusta y adaptable a futuras mejoras.",
+      "ACHIEVEMENTS": {
+        "TITLE": "Logros clave:",
+        "LOCALIZATION": "Soporte de localización para usuarios internacionales",
+        "TEST_COVERAGE": "Cobertura de pruebas completa que garantiza estabilidad y fiabilidad"
+      }
+    },
+    "FEATURES": {
+      "TITLE": "Características principales",
+      "HEADER": "Encabezado reutilizable: Proporciona navegación y branding en toda la aplicación",
+      "RESPONSIVE": "Diseño responsivo: Totalmente optimizado para escritorios, tabletas y dispositivos móviles",
+      "MODULAR": "Arquitectura modular: Los módulos de Angular facilitan el mantenimiento y la escalabilidad",
+      "ROUTING": "Enrutamiento dinámico: Permite una navegación fluida entre páginas",
+      "STATE": "Gestión del estado: Manejo eficiente con servicios de Angular y RxJS"
+    },
+    "TECH": {
+      "TITLE": "Implementación y pila tecnológica",
+      "INTRO": "La aplicación se ha desarrollado utilizando tecnologías frontend modernas, con un enfoque en el rendimiento y una arquitectura limpia.",
+      "ANGULAR_CLI": "Angular CLI: Para generación de código y flujo de desarrollo",
+      "RXJS": "RxJS: Para patrones de programación reactiva",
+      "MATERIAL": "Angular Material: Para componentes de interfaz de usuario responsivos",
+      "GIT": "Git: Control de versiones y colaboración en equipo",
+      "TS_MOCKITO": "Ts-mockito: Para pruebas unitarias y mocks",
+      "CONCLUSION": "El desarrollo siguió un enfoque iterativo, con pruebas rigurosas y depuración para garantizar la fiabilidad y la calidad en cada etapa."
+    }
   }
 }

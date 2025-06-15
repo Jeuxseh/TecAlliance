@@ -1,33 +1,65 @@
 {
-    "SHARED": {
-      "CONFIRM": "Confirmer",
-      "CANCEL": "Annuler"
+  "SHARED": {
+    "CONFIRM": "Confirmer",
+    "CANCEL": "Annuler"
+  },
+  "HEADER": {
+    "HOME": "Accueil",
+    "ABOUT": "À propos",
+    "LOGOUT": "Déconnexion",
+    "LANGUAGE": "Langue"
+  },
+  "LOGIN": {
+    "LOGIN": "Connexion",
+    "EMAIL": "Email",
+    "NO_EMAIL_ERROR": "E-mail invalide. Veuillez saisir un e-mail.",
+    "INVALID_EMAIL": "E-mail invalide. Veuillez saisir un e-mail valide."
+  },
+  "HOME": {
+    "MY_TODO_LIST": "Ma liste de tâches",
+    "ADD_TODO": "Ajouter une tâche...",
+    "ADD": "Ajouter"
+  },
+  "MODALS": {
+    "EDIT_MODAL": {
+      "TITLE": "Modifier la tâche"
     },
-    "HEADER": {
-      "HOME": "Accueil",
-      "ABOUT": "À propos",
-      "LOGOUT": "Déconnexion",
-      "LANGUAGE": "Langue"
-    },
-    "LOGIN": {
-      "LOGIN": "Connexion",
-      "EMAIL": "Email",
-      "NO_EMAIL_ERROR": "E-mail invalide. Veuillez saisir un e-mail.",
-      "INVALID_EMAIL": "E-mail invalide. Veuillez saisir un e-mail valide."
-    },
-    "HOME": {
-      "MY_TODO_LIST": "Ma liste de tâches",
-      "ADD_TODO": "Ajouter une tâche...",
-      "ADD": "Ajouter"
-    },
-    "MODALS": {
-      "EDIT_MODAL": {
-        "TITLE": "Modifier la tâche"
-      },
-      "CONFIRM_MODAL": {
-        "TITLE": "Confirmer la suppression",
-        "CONFIRM_MESSAGE": "Êtes-vous sûr de vouloir supprimer cette tâche?"
+    "CONFIRM_MODAL": {
+      "TITLE": "Confirmer la suppression",
+      "CONFIRM_MESSAGE": "Êtes-vous sûr de vouloir supprimer cette tâche?"
+    }
+  },
+  "ABOUT": {
+    "TITLE": "À propos de ce projet",
+    "SUBTITLE": "Découvrez les objectifs, les fonctionnalités et les détails techniques de cette application basée sur Angular.",
+    "OVERVIEW": {
+      "TITLE": "Aperçu du projet",
+      "P1": "Ce projet est une application frontend moderne développée avec Angular. Il vise à présenter les services de TecAlliance via une interface intuitive avec des composants dynamiques et responsives.",
+      "P2": "L'architecture met l'accent sur la modularité, l’évolutivité et la maintenabilité, garantissant une solution robuste et adaptable aux évolutions futures.",
+      "ACHIEVEMENTS": {
+        "TITLE": "Réalisations clés :",
+        "LOCALIZATION": "Support de localisation pour les utilisateurs internationaux",
+        "TEST_COVERAGE": "Couverture de tests complète garantissant stabilité et fiabilité"
       }
+    },
+    "FEATURES": {
+      "TITLE": "Fonctionnalités principales",
+      "HEADER": "En-tête réutilisable : Fournit navigation et identité visuelle à travers l'application",
+      "RESPONSIVE": "Design réactif : Entièrement optimisé pour ordinateurs, tablettes et appareils mobiles",
+      "MODULAR": "Architecture modulaire : Les modules Angular facilitent la maintenabilité et l’évolutivité",
+      "ROUTING": "Routage dynamique : Permet une navigation fluide entre les pages",
+      "STATE": "Gestion d'état : Traitement efficace avec les services Angular et RxJS"
+    },
+    "TECH": {
+      "TITLE": "Implémentation et stack technologique",
+      "INTRO": "L'application est développée avec des technologies frontend modernes, axée sur la performance et une architecture propre.",
+      "ANGULAR_CLI": "Angular CLI : Pour la génération de code et le flux de développement",
+      "RXJS": "RxJS : Pour les modèles de programmation réactive",
+      "MATERIAL": "Angular Material : Pour les composants d'interface utilisateur réactifs",
+      "GIT": "Git : Contrôle de version et collaboration en équipe",
+      "TS_MOCKITO": "Ts-mockito : Pour les tests unitaires et les mocks",
+      "CONCLUSION": "Le développement a suivi une approche itérative, avec des tests rigoureux et du débogage afin d’assurer la fiabilité et la qualité à chaque étape."
     }
   }
+}
   
