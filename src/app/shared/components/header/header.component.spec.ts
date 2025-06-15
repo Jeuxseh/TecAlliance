@@ -22,6 +22,7 @@ describe('HeaderComponent', () => {
   });
 
   afterEach(() => {
+    localStorage.clear();
     reset(mockTranslateService);
     reset(mockAuthService);
   });

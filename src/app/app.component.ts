@@ -11,9 +11,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   constructor(private translate: TranslateService){
+    const savedLanguage = localStorage.getItem('lang');
     const defaultLanguage = this.translate.getBrowserLang() || 'en';
-    this.translate.use(defaultLanguage);
-    localStorage.setItem('lang', defaultLanguage);
+    if (savedLanguage) {
+      this.translate.use(savedLanguage);
+    } else {
+      this.translate.use(defaultLanguage);
+      localStorage.setItem('lang', defaultLanguage);
+    }
   }
   title = 'TecAllianceFrontend';
 }
